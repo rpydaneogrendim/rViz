@@ -1884,7 +1884,7 @@ Kitap boyunca kullanılan veri setleri Github'da verilmiştir. Öncelikli olarak
 \NormalTok{v23}\OperatorTok{$}\NormalTok{Grup <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(v23}\OperatorTok{$}\NormalTok{Grup, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{"Vaka"}\NormalTok{, }\StringTok{"İyileşen"}\NormalTok{, }\StringTok{"Ölüm")) #Yapılacak sıralama önemlidir}
 
 \StringTok{ggplot(data = v23) +}
-\StringTok{  geom_area(mapping = aes(x = `Gün`, y = `Sayı`, fill = Grup))}
+\StringTok{  geom_area(mapping = aes(x = `Gün`, y = `Günlük`, fill = Grup))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1892,7 +1892,7 @@ Kitap boyunca kullanılan veri setleri Github'da verilmiştir. Öncelikli olarak
 
 \begin{itemize}
 \item
-  y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.
+  y eksenine ait değerleri kaldırabiliriz.
 \item
   Renkleri değiştirebiliriz.
 \end{itemize}
@@ -1900,9 +1900,9 @@ Kitap boyunca kullanılan veri setleri Github'da verilmiştir. Öncelikli olarak
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ v23) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_area}\NormalTok{(}\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{`}\DataTypeTok{Gün`, y = }\StringTok{`}\NormalTok{Sayı}\StringTok{`}\DataTypeTok{, fill = Grup)) +}
-\DataTypeTok{  scale_y_continuous(labels = comma) +}
-\DataTypeTok{  scale_fill_viridis_d()}
+\StringTok{  }\KeywordTok{geom_area}\NormalTok{(}\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{`}\DataTypeTok{Gün`, y = }\StringTok{`}\NormalTok{Günlük`, }\DataTypeTok{fill =}\NormalTok{ Grup)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{axis.text.y =} \KeywordTok{element_blank}\NormalTok{()) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_viridis_d}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1922,16 +1922,16 @@ Kitap boyunca kullanılan veri setleri Github'da verilmiştir. Öncelikli olarak
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ v23) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_area}\NormalTok{(}\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{`}\DataTypeTok{Gün`, y = }\StringTok{`}\NormalTok{Sayı}\StringTok{`}\DataTypeTok{, fill = Grup)) +}
-\DataTypeTok{  scale_y_continuous(labels = comma) +}
-\DataTypeTok{  scale_fill_viridis_d() +}
-\DataTypeTok{  theme_minimal() +}
-\DataTypeTok{  theme(legend.position = "bottom",}
-\DataTypeTok{        legend.title = element_blank()) +}
-\DataTypeTok{  labs(x = NULL,}
-\DataTypeTok{       y = NULL,}
-\DataTypeTok{       title = "Türkiye Covid-19 Vaka, İyileşen, Ölüm Sayıları",}
-\DataTypeTok{       caption = "Kaynak: CSSEGISandData")}
+\StringTok{  }\KeywordTok{geom_area}\NormalTok{(}\DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \StringTok{`}\DataTypeTok{Gün`, y = }\StringTok{`}\NormalTok{Günlük`, }\DataTypeTok{fill =}\NormalTok{ Grup)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_viridis_d}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"bottom"}\NormalTok{,}
+        \DataTypeTok{legend.title =} \KeywordTok{element_blank}\NormalTok{(),}
+        \DataTypeTok{axis.text.y =} \KeywordTok{element_blank}\NormalTok{()) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \OtherTok{NULL}\NormalTok{,}
+       \DataTypeTok{y =} \OtherTok{NULL}\NormalTok{,}
+       \DataTypeTok{title =} \StringTok{"Türkiye Covid-19 Vaka, İyileşen, Ölüm Sayıları"}\NormalTok{,}
+       \DataTypeTok{caption =} \StringTok{"Kaynak: CSSEGISandData"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 

@@ -1,6 +1,0 @@
-output_dir: "docs"
-book_filename: "rViz"
-delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Bölüm "

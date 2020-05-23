@@ -1389,19 +1389,19 @@ ggplot(data = v10) +
 v23$Grup <- factor(v23$Grup, levels = c("Vaka", "İyileşen", "Ölüm")) #Yapılacak sıralama önemlidir
 
 ggplot(data = v23) +
-  geom_area(mapping = aes(x = `Gün`, y = `Sayı`, fill = Grup))
+  geom_area(mapping = aes(x = `Gün`, y = `Günlük`, fill = Grup))
 
 ```
 
-* y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.
+* y eksenine ait değerleri kaldırabiliriz.
 
 * Renkleri değiştirebiliriz.
 
 ```{r}
 
 ggplot(data = v23) +
-  geom_area(mapping = aes(x = `Gün`, y = `Sayı`, fill = Grup)) +
-  scale_y_continuous(labels = comma) +
+  geom_area(mapping = aes(x = `Gün`, y = `Günlük`, fill = Grup)) +
+  theme(axis.text.y = element_blank()) +
   scale_fill_viridis_d()
 
 ```
@@ -1417,12 +1417,12 @@ ggplot(data = v23) +
 ```{r}
 
 ggplot(data = v23) +
-  geom_area(mapping = aes(x = `Gün`, y = `Sayı`, fill = Grup)) +
-  scale_y_continuous(labels = comma) +
+  geom_area(mapping = aes(x = `Gün`, y = `Günlük`, fill = Grup)) +
   scale_fill_viridis_d() +
   theme_minimal() +
   theme(legend.position = "bottom",
-        legend.title = element_blank()) +
+        legend.title = element_blank(),
+        axis.text.y = element_blank()) +
   labs(x = NULL,
        y = NULL,
        title = "Türkiye Covid-19 Vaka, İyileşen, Ölüm Sayıları",
