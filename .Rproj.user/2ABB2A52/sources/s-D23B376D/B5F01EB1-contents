@@ -1,0 +1,94 @@
+# Giriş
+
+Bu çalışmayı hazırlarken şu iki soruyu aklımızdan çıkarmadık:
+
+* Görseli daha ne kadar güzelleştirebiliriz?
+
+* Görseldeki bilgiyi karmaşık olmadan okuyucuya nasıl aktarabiliriz?
+
+Uygulama yaparken şu üç şeyi görmenizi istedik:
+
+* Bir görselin en basit halinden daha göze hitap edecek bir hale getirilme aşamaları
+
+* Bir görselin başlangıcından bitişine kadar olan süreçte kullanılan bilgilerdeki değişim
+
+* R'da yapılan görselleştirmelerin çoğunlukla tekrar eden yapısı
+
+Sizlerden ricamız:
+
+* Bizler *sadece* bu alana odaklanan uzmanlar değiliz. Fakat veri görselleştirme profesyonel hayatımızın *önemli bir parça*sı ve bütün ciddiyeti ile bu parçayı kullanıyoruz. Bunu unutmayın.
+
+* Görselleri bütün detayları ile anlatarak okuyucunun araştırma duygularını öldürmek istemedik. Eksik kaldığınız yerlerde mutlaka araştırın. Bu sayede internette soru sorma, dokümantasyon okuma gibi beceriler kazanabilir ya da bunları geliştirebilirsiniz.
+
+Bu çalışmayı, Can Özkan'ın da onayı ile 12 Mayıs'ta 200. yaşına giren Hemşire ve aynı zamanda tutkulu bir İstatistikçi Florence Nightingale'ın anısına armağan ediyoruz.
+
+> *Ne zaman çileden çıksam, yeni bir grafikle intikamımı alıyorum.*
+
+## Kullanılan Kütüphaneler
+
+```{r, eval=FALSE}
+
+library(circlize)
+library(directlabels)
+library(dplyr)
+library(fmsb)
+library(ggalluvial)
+library(ggalt)
+library(ggplot2)
+library(ggridges)
+library(ggthemes)
+library(hrbrthemes)
+library(igraph)
+library(leaflet)
+library(lubridate)
+library(magrittr)
+library(raster)
+library(readxl)
+library(tibble)
+library(scales)
+library(tidyquant)
+library(treemap)
+library(vistime)
+
+```
+
+## Kullanılan Veri Setleri
+
+```{r, eval=FALSE}
+
+v1 <- read_excel("v1.xlsx")
+v2 <- read_excel("v2.xlsx")
+v3 <- read.csv("v3.csv")
+v4 <- read_excel("v4.xlsx")
+v5 <- read_excel("v5.xlsx")
+v6 <- read.csv("v6.csv")
+v7 <- read_excel("v7.xls")
+v8 <- read_excel("v8.xlsx")
+v9 <- read.csv("v9.csv")
+v10 <- read_excel("v10.xlsx")
+v11 <- read_excel("v11.xlsx")
+v12 <- read_excel("v12.xlsx")
+v13 <- read_excel("v13.xlsx")
+v14 <- read.csv("v14.csv")
+v15 <- read_excel("v15.xls")
+v16 <- read_excel("v16.xls")
+v17 <- read.csv("v17.csv")
+v18 <- read.csv("v18.csv")
+v19 <- read.csv("v19.csv")
+v20 <- read_excel("v20.xlsx")
+v21 <- read_excel("v21.xlsx")
+v22 <- read_excel("v22.xlsx")
+v23 <- read_excel("v23.xlsx")
+v24 <- read_excel("v24.xlsx")
+v25 <- read_excel("v25.xlsx")
+v26 <- read.csv("v26.csv")
+v27 <- read.csv("v27.csv")
+v28 <- read_excel("v28.xls")
+
+```
+
+Kitap boyunca kullanılan veri setleri Github'da verilmiştir. Öncelikli olarak bu dosyayı indirmenizi tavsiye ederim.
+
+* [<u>Buraya tıklayın</u>.](https://github.com/rpydaneogrendim/rViz)
+
+* *Clone or download* bölümünden *Download ZIP* seçeneği ile dosyaları indirebilirsiniz. Hedef dosya: **data**

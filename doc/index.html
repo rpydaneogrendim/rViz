@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>R’da Veri Görselleştirme</title>
+  <meta name="description" content="Verileri R’da görselleştirin." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="R’da Veri Görselleştirme" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Verileri R’da görselleştirin." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R’da Veri Görselleştirme" />
+  
+  <meta name="twitter:description" content="Verileri R’da görselleştirin." />
+  
+
+<meta name="author" content="Ahmet Akgül, Can Özkan" />
+
+
+<meta name="date" content="2020-05-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="giri-.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R'da Veri Görselleştirme</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Önsöz</a></li>
+<li class="chapter" data-level="2" data-path="giri-.html"><a href="giri-.html"><i class="fa fa-check"></i><b>2</b> Giriş</a><ul>
+<li class="chapter" data-level="2.1" data-path="giri-.html"><a href="giri-.html#kullanılan-kütüphaneler"><i class="fa fa-check"></i><b>2.1</b> Kullanılan Kütüphaneler</a></li>
+<li class="chapter" data-level="2.2" data-path="giri-.html"><a href="giri-.html#kullanılan-veri-setleri"><i class="fa fa-check"></i><b>2.2</b> Kullanılan Veri Setleri</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html"><i class="fa fa-check"></i><b>3</b> Veri Görselleştirme Tür ve Uygulamaları</a><ul>
+<li class="chapter" data-level="3.1" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#alluvial"><i class="fa fa-check"></i><b>3.1</b> Alluvial</a></li>
+<li class="chapter" data-level="3.2" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#bar-çubuk"><i class="fa fa-check"></i><b>3.2</b> Bar (Çubuk)</a></li>
+<li class="chapter" data-level="3.3" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#box-and-whisker-kutu-bıyık"><i class="fa fa-check"></i><b>3.3</b> Box and Whisker (Kutu-Bıyık)</a></li>
+<li class="chapter" data-level="3.4" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#bubble-balon"><i class="fa fa-check"></i><b>3.4</b> Bubble (Balon)</a></li>
+<li class="chapter" data-level="3.5" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#bubble-map-balon-harita"><i class="fa fa-check"></i><b>3.5</b> Bubble Map (Balon Harita)</a></li>
+<li class="chapter" data-level="3.6" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#candlestick-mum"><i class="fa fa-check"></i><b>3.6</b> Candlestick (Mum)</a></li>
+<li class="chapter" data-level="3.7" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#chord-akor"><i class="fa fa-check"></i><b>3.7</b> Chord (Akor)</a></li>
+<li class="chapter" data-level="3.8" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#choropleth-map"><i class="fa fa-check"></i><b>3.8</b> Choropleth Map</a></li>
+<li class="chapter" data-level="3.9" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#circular"><i class="fa fa-check"></i><b>3.9</b> Circular</a></li>
+<li class="chapter" data-level="3.10" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#connected-scatter-bağlantılı-saçılım"><i class="fa fa-check"></i><b>3.10</b> Connected Scatter (Bağlantılı Saçılım)</a></li>
+<li class="chapter" data-level="3.11" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#connection-map-bağlantı-harita"><i class="fa fa-check"></i><b>3.11</b> Connection Map (Bağlantı Harita)</a></li>
+<li class="chapter" data-level="3.12" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#density-yoğunluk"><i class="fa fa-check"></i><b>3.12</b> Density (Yoğunluk)</a></li>
+<li class="chapter" data-level="3.13" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#donut"><i class="fa fa-check"></i><b>3.13</b> Donut</a></li>
+<li class="chapter" data-level="3.14" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#dot-map-nokta-haritası"><i class="fa fa-check"></i><b>3.14</b> Dot Map (Nokta Haritası)</a></li>
+<li class="chapter" data-level="3.15" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#dumbbell"><i class="fa fa-check"></i><b>3.15</b> Dumbbell</a></li>
+<li class="chapter" data-level="3.16" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#heatmap-isı-haritası"><i class="fa fa-check"></i><b>3.16</b> Heatmap (Isı Haritası)</a></li>
+<li class="chapter" data-level="3.17" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#histogram"><i class="fa fa-check"></i><b>3.17</b> Histogram</a></li>
+<li class="chapter" data-level="3.18" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#line-çizgi"><i class="fa fa-check"></i><b>3.18</b> Line (Çizgi)</a></li>
+<li class="chapter" data-level="3.19" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#lollipop"><i class="fa fa-check"></i><b>3.19</b> Lollipop</a></li>
+<li class="chapter" data-level="3.20" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#multi-set-bar-çoklu-çubuk"><i class="fa fa-check"></i><b>3.20</b> Multi-set Bar (Çoklu Çubuk)</a></li>
+<li class="chapter" data-level="3.21" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#network-ağ"><i class="fa fa-check"></i><b>3.21</b> Network (Ağ)</a></li>
+<li class="chapter" data-level="3.22" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#ohlc-açılış-yükseliş-düşüş-kapanış"><i class="fa fa-check"></i><b>3.22</b> OHLC (Açılış-Yükseliş-Düşüş-Kapanış)</a></li>
+<li class="chapter" data-level="3.23" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#population-pyramid-nüfus-piramidi"><i class="fa fa-check"></i><b>3.23</b> Population Pyramid (Nüfus Piramidi)</a></li>
+<li class="chapter" data-level="3.24" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#radar"><i class="fa fa-check"></i><b>3.24</b> Radar</a></li>
+<li class="chapter" data-level="3.25" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#ridgeline"><i class="fa fa-check"></i><b>3.25</b> Ridgeline</a></li>
+<li class="chapter" data-level="3.26" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#scatter-dağılım-nokta-saçılım"><i class="fa fa-check"></i><b>3.26</b> Scatter (Dağılım, Nokta, Saçılım)</a></li>
+<li class="chapter" data-level="3.27" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#stacked-area-yığılı-alan"><i class="fa fa-check"></i><b>3.27</b> Stacked Area (Yığılı Alan)</a></li>
+<li class="chapter" data-level="3.28" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#stacked-bar-yığılmış-çubuk"><i class="fa fa-check"></i><b>3.28</b> Stacked Bar (Yığılmış Çubuk)</a></li>
+<li class="chapter" data-level="3.29" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#timeline-zaman-çizelgesi"><i class="fa fa-check"></i><b>3.29</b> Timeline (Zaman Çizelgesi)</a></li>
+<li class="chapter" data-level="3.30" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#treemap-ağaç-harita"><i class="fa fa-check"></i><b>3.30</b> Treemap (Ağaç Harita)</a></li>
+<li class="chapter" data-level="3.31" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#violin-viyolonsel"><i class="fa fa-check"></i><b>3.31</b> Violin (Viyolonsel)</a></li>
+<li class="chapter" data-level="3.32" data-path="veri-görselle-tirme-tür-ve-uygulamalar-.html"><a href="veri-görselle-tirme-tür-ve-uygulamalar-.html#wordcloud-kelime-bulutu"><i class="fa fa-check"></i><b>3.32</b> Wordcloud (Kelime Bulutu)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rpydaneogrendim" target="blank">Github profilimi ziyaret edin</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R’da Veri Görselleştirme</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R’da Veri Görselleştirme</h1>
+<p class="author"><em>Ahmet Akgül, Can Özkan</em></p>
+<p class="date"><em>2020-05-23</em></p>
+</div>
+<div id="önsöz" class="section level1">
+<h1><span class="header-section-number">Bölüm 1</span> Önsöz</h1>
+<p>Hakkında bir şey bilmediğiniz konularda onu öğrenmek adına başvuracağınız bazı yöntemler vardır. Örneğin, insanları tanımak için zamana; veriyi tanımak, sonuçlarını yorumlamak için ise görsellere… Veri ile uğraşan her bilim dalının -sanırım artık kalmadı- ortak çatıda buluşabileceği bir alan veri görselleştirmesi. Çok temel, basit bir konu olmasına rağmen çalışmalarda grafikler üzerinde ciddi eksiklerin olması bu kitabı oluşturmamıza sebep oldu. R’ın ggplot kütüphanesi ise veri görselleştirme konusunda herkesin rahatlıkla anlayabileceği, az önce belirttiğim ortak çatıda buluşabileceği basit bir yapı.</p>
+<p>E[x] = “R ile anlaşılır grafikler oluşturmak”</p>
+<p>Can Özkan</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="giri-.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["rViz.pdf", "rViz.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

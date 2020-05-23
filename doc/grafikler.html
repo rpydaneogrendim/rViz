@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bölüm 2 Grafikler | R’da Veri Görselleştirme</title>
+  <meta name="description" content="Verileri R’da görselleştirin." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bölüm 2 Grafikler | R’da Veri Görselleştirme" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Verileri R’da görselleştirin." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bölüm 2 Grafikler | R’da Veri Görselleştirme" />
+  
+  <meta name="twitter:description" content="Verileri R’da görselleştirin." />
+  
+
+<meta name="author" content="Ahmet Akgül, Can Özkan" />
+
+
+<meta name="date" content="2020-05-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="veri-görselle-tirme-tür-ve-örnekleri.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R'da Veri Görselleştirme</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Önsöz</a></li>
+<li class="chapter" data-level="2" data-path="grafikler.html"><a href="grafikler.html"><i class="fa fa-check"></i><b>2</b> Grafikler</a><ul>
+<li class="chapter" data-level="2.1" data-path="grafikler.html"><a href="grafikler.html#area-alan"><i class="fa fa-check"></i><b>2.1</b> Area (Alan)</a></li>
+<li class="chapter" data-level="2.2" data-path="grafikler.html"><a href="grafikler.html#bar-çubuk"><i class="fa fa-check"></i><b>2.2</b> Bar (Çubuk)</a></li>
+<li class="chapter" data-level="2.3" data-path="grafikler.html"><a href="grafikler.html#box-and-whisker-kutu-bıyık"><i class="fa fa-check"></i><b>2.3</b> Box and Whisker (Kutu-Bıyık)</a></li>
+<li class="chapter" data-level="2.4" data-path="grafikler.html"><a href="grafikler.html#bubble-balon"><i class="fa fa-check"></i><b>2.4</b> Bubble (Balon)</a></li>
+<li class="chapter" data-level="2.5" data-path="grafikler.html"><a href="grafikler.html#candlestick-mum"><i class="fa fa-check"></i><b>2.5</b> Candlestick (Mum)</a></li>
+<li class="chapter" data-level="2.6" data-path="grafikler.html"><a href="grafikler.html#density-yoğunluk"><i class="fa fa-check"></i><b>2.6</b> Density (Yoğunluk)</a></li>
+<li class="chapter" data-level="2.7" data-path="grafikler.html"><a href="grafikler.html#histogram"><i class="fa fa-check"></i><b>2.7</b> Histogram</a></li>
+<li class="chapter" data-level="2.8" data-path="grafikler.html"><a href="grafikler.html#line-çizgi"><i class="fa fa-check"></i><b>2.8</b> Line (Çizgi)</a></li>
+<li class="chapter" data-level="2.9" data-path="grafikler.html"><a href="grafikler.html#multi-set-bar-çoklu-çubuk"><i class="fa fa-check"></i><b>2.9</b> Multi-set Bar (Çoklu Çubuk)</a></li>
+<li class="chapter" data-level="2.10" data-path="grafikler.html"><a href="grafikler.html#ohlc-açılış-yükseliş-düşüş-kapanış"><i class="fa fa-check"></i><b>2.10</b> OHLC (Açılış-Yükseliş-Düşüş-Kapanış)</a></li>
+<li class="chapter" data-level="2.11" data-path="grafikler.html"><a href="grafikler.html#population-pyramid-nüfus-piramidi"><i class="fa fa-check"></i><b>2.11</b> Population Pyramid (Nüfus Piramidi)</a></li>
+<li class="chapter" data-level="2.12" data-path="grafikler.html"><a href="grafikler.html#radar"><i class="fa fa-check"></i><b>2.12</b> Radar</a></li>
+<li class="chapter" data-level="2.13" data-path="grafikler.html"><a href="grafikler.html#scatter-dağılım-nokta-saçılım"><i class="fa fa-check"></i><b>2.13</b> Scatter (Dağılım, Nokta, Saçılım)</a></li>
+<li class="chapter" data-level="2.14" data-path="grafikler.html"><a href="grafikler.html#stacked-area-yığılı-alan"><i class="fa fa-check"></i><b>2.14</b> Stacked Area (Yığılı Alan)</a></li>
+<li class="chapter" data-level="2.15" data-path="grafikler.html"><a href="grafikler.html#stacked-bar-yığılmış-çubuk"><i class="fa fa-check"></i><b>2.15</b> Stacked Bar (Yığılmış Çubuk)</a></li>
+<li class="chapter" data-level="2.16" data-path="grafikler.html"><a href="grafikler.html#violin-viyolonsel"><i class="fa fa-check"></i><b>2.16</b> Violin (Viyolonsel)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html"><i class="fa fa-check"></i><b>3</b> Veri Görselleştirme Tür ve Örnekleri</a><ul>
+<li class="chapter" data-level="3.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#grup-1"><i class="fa fa-check"></i><b>3.1</b> Grup 1</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#kutu-bıyık-box-whisker"><i class="fa fa-check"></i><b>3.1.1</b> Kutu-Bıyık (Box-Whisker)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#viyolonsel-violin"><i class="fa fa-check"></i><b>3.1.2</b> Viyolonsel (Violin)</a></li>
+<li class="chapter" data-level="3.1.3" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#ridgeline"><i class="fa fa-check"></i><b>3.1.3</b> Ridgeline</a></li>
+<li class="chapter" data-level="3.1.4" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#nüfus-piramidi"><i class="fa fa-check"></i><b>3.1.4</b> Nüfus Piramidi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#grup-2"><i class="fa fa-check"></i><b>3.2</b> Grup 2</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#saçılım-scatter"><i class="fa fa-check"></i><b>3.2.1</b> Saçılım (Scatter)</a></li>
+<li class="chapter" data-level="3.2.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#bağlantılı-saçılım-connected-scatter"><i class="fa fa-check"></i><b>3.2.2</b> Bağlantılı Saçılım (Connected Scatter)</a></li>
+<li class="chapter" data-level="3.2.3" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#balon-bubble"><i class="fa fa-check"></i><b>3.2.3</b> Balon (Bubble)</a></li>
+<li class="chapter" data-level="3.2.4" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#isı-haritası-heatmap"><i class="fa fa-check"></i><b>3.2.4</b> Isı Haritası (Heatmap)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#grup-3"><i class="fa fa-check"></i><b>3.3</b> Grup 3</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#çubuk-bar"><i class="fa fa-check"></i><b>3.3.1</b> Çubuk (Bar)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#radar-1"><i class="fa fa-check"></i><b>3.3.2</b> Radar</a></li>
+<li class="chapter" data-level="3.3.3" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#paralel-koordinatlar"><i class="fa fa-check"></i><b>3.3.3</b> Paralel Koordinatlar</a></li>
+<li class="chapter" data-level="3.3.4" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#circular"><i class="fa fa-check"></i><b>3.3.4</b> Circular</a></li>
+<li class="chapter" data-level="3.3.5" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#lollipop"><i class="fa fa-check"></i><b>3.3.5</b> Lollipop</a></li>
+<li class="chapter" data-level="3.3.6" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#dumbbell"><i class="fa fa-check"></i><b>3.3.6</b> Dumbbell</a></li>
+<li class="chapter" data-level="3.3.7" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#kelime-bulutu-wordcloud"><i class="fa fa-check"></i><b>3.3.7</b> Kelime Bulutu (Wordcloud)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#grup-4"><i class="fa fa-check"></i><b>3.4</b> Grup 4</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#çoklu-çubuk-multi-set-bar"><i class="fa fa-check"></i><b>3.4.1</b> Çoklu Çubuk (Multi-set Bar)</a></li>
+<li class="chapter" data-level="3.4.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#yığılmış-çubuk-stacked-bar"><i class="fa fa-check"></i><b>3.4.2</b> Yığılmış Çubuk (Stacked Bar)</a></li>
+<li class="chapter" data-level="3.4.3" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#donut-doughnut"><i class="fa fa-check"></i><b>3.4.3</b> Donut (Doughnut)</a></li>
+<li class="chapter" data-level="3.4.4" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#ağaç-harita-treemap"><i class="fa fa-check"></i><b>3.4.4</b> Ağaç Harita (Treemap)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#grup-5"><i class="fa fa-check"></i><b>3.5</b> Grup 5</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#çizgi-line"><i class="fa fa-check"></i><b>3.5.1</b> Çizgi (Line)</a></li>
+<li class="chapter" data-level="3.5.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#yığılı-alan-stacked-area"><i class="fa fa-check"></i><b>3.5.2</b> Yığılı Alan (Stacked Area)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#grup-6"><i class="fa fa-check"></i><b>3.6</b> Grup 6</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#koroplet-choropleth"><i class="fa fa-check"></i><b>3.6.1</b> Koroplet (Choropleth)</a></li>
+<li class="chapter" data-level="3.6.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#nokta-harita-dot-map"><i class="fa fa-check"></i><b>3.6.2</b> Nokta Harita (Dot Map)</a></li>
+<li class="chapter" data-level="3.6.3" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#bağlantı-harita-connection-map"><i class="fa fa-check"></i><b>3.6.3</b> Bağlantı Harita (Connection Map)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#grup-7"><i class="fa fa-check"></i><b>3.7</b> Grup 7</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#akor-chord"><i class="fa fa-check"></i><b>3.7.1</b> Akor (Chord)</a></li>
+<li class="chapter" data-level="3.7.2" data-path="veri-görselle-tirme-tür-ve-örnekleri.html"><a href="veri-görselle-tirme-tür-ve-örnekleri.html#sankey"><i class="fa fa-check"></i><b>3.7.2</b> Sankey</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R’da Veri Görselleştirme</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="grafikler" class="section level1">
+<h1><span class="header-section-number">Bölüm 2</span> Grafikler</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(readxl);<span class="kw">library</span>(ggplot2);<span class="kw">library</span>(dplyr);<span class="kw">library</span>(tibble);<span class="kw">library</span>(magrittr);<span class="kw">library</span>(lubridate);<span class="kw">library</span>(scales);<span class="kw">library</span>(tidyquant);<span class="kw">library</span>(directlabels);<span class="kw">library</span>(fmsb)</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">setwd</span>(<span class="st">&quot;C:/Users/datanerd/Desktop/Github/rViz/data&quot;</span>)</a>
+<a class="sourceLine" id="cb1-4" title="4">g1_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_2.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" title="5">g1_<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;g1_3.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-6" title="6">g1_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_4.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb1-7" title="7">g1_<span class="dv">5</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;g1_5.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-8" title="8">g1_<span class="dv">6</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_6.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb1-9" title="9">g1_<span class="dv">7</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;g1_7.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-10" title="10">g1_<span class="dv">8</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;g1_8.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-11" title="11">g1_<span class="dv">9</span> &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;g1_9.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-12" title="12">g1_<span class="dv">10</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_10.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb1-13" title="13">g1_<span class="dv">11</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_11.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb1-14" title="14">g1_<span class="dv">12</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_12.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb1-15" title="15">g1_<span class="dv">13</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_13.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb1-16" title="16">g1_<span class="dv">14</span> &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;g1_14.xlsx&quot;</span>)</a></code></pre></div>
+<div id="area-alan" class="section level2">
+<h2><span class="header-section-number">2.1</span> Area (Alan)</h2>
+</div>
+<div id="bar-çubuk" class="section level2">
+<h2><span class="header-section-number">2.2</span> Bar (Çubuk)</h2>
+<p><em>Bölgeler düzeyinde tiyatro seyirci sayısı:</em></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="dt">y =</span> Tiyatro), <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co">#Alternatif</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="dt">y =</span> Tiyatro))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<ul>
+<li><p>x ekseninde yer alan bölge isimlerini küçültebiliriz.</p></li>
+<li><p>y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.</p></li>
+<li><p>Çubukları büyükten küçüğe doğru sıralayabiliriz.</p></li>
+<li><p>Çubukları renklendirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="op">-</span>Tiyatro), <span class="dt">y =</span> Tiyatro, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı kaldırabiliriz.</p></li>
+<li><p>x ve y eksenlerine ait başlıkları kaldırabiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="op">-</span><span class="st">`</span><span class="dt">Tiyatro</span><span class="st">`</span>), <span class="dt">y =</span> Tiyatro, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb5-6" title="6">        <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb5-8" title="8">        <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb5-10" title="10">       <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb5-11" title="11">       <span class="dt">title =</span> <span class="st">&quot;Bölgeler Düzeyinde Tiyatro Seyirci Sayısı&quot;</span>,</a>
+<a class="sourceLine" id="cb5-12" title="12">       <span class="dt">subtitle =</span> <span class="st">&quot;2018 yılına ait verilerdir&quot;</span>,</a>
+<a class="sourceLine" id="cb5-13" title="13">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TÜİK&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
+<ul>
+<li>Çubukları yatay bir şekilde de gösterebiliriz.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Tiyatro</span><span class="st">`</span>), <span class="dt">y =</span> Tiyatro, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb6-6" title="6">        <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb6-7" title="7">        <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb6-9" title="9">       <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb6-10" title="10">       <span class="dt">title =</span> <span class="st">&quot;Bölgeler Düzeyinde Tiyatro Seyirci Sayısı&quot;</span>,</a>
+<a class="sourceLine" id="cb6-11" title="11">       <span class="dt">subtitle =</span> <span class="st">&quot;2018 yılına ait verilerdir&quot;</span>,</a>
+<a class="sourceLine" id="cb6-12" title="12">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TÜİK&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+</div>
+<div id="box-and-whisker-kutu-bıyık" class="section level2">
+<h2><span class="header-section-number">2.3</span> Box and Whisker (Kutu-Bıyık)</h2>
+<p><em>Günlük BIST Hizmet, Mali, Sınai, Teknoloji endeks kapanışları:</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Endeks, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Kapanış</span><span class="st">`</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<ul>
+<li><p>y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.</p></li>
+<li><p>Kutuları renklendirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Endeks, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Kapanış</span><span class="st">`</span>, <span class="dt">fill =</span> Endeks)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı kaldırabiliriz.</p></li>
+<li><p>x eksenine ait başlığı kaldırabiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Endeks, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Kapanış</span><span class="st">`</span>, <span class="dt">fill =</span> Endeks)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb9-8" title="8">       <span class="dt">title =</span> <span class="st">&quot;Günlük BIST Hizmet, Mali, Sınai, Teknoloji Endeks Kapanışları&quot;</span>,</a>
+<a class="sourceLine" id="cb9-9" title="9">       <span class="dt">subtitle =</span> <span class="st">&quot;Son 1 yıla ait verilerdir&quot;</span>,</a>
+<a class="sourceLine" id="cb9-10" title="10">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TCMB&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="bubble-balon" class="section level2">
+<h2><span class="header-section-number">2.4</span> Bubble (Balon)</h2>
+<p><em>İl ve ilçelere göre İnsani Gelişme Endeksi:</em></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb10-2" title="2"></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Nüfus`, y = Endeks, size = </span><span class="st">`</span>Nüfus`))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<ul>
+<li><p>İllere göre renklendirebiliriz.</p></li>
+<li><p>Noktaları düzenleyebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Nüfus`, y = Endeks, size = </span><span class="st">`</span>Nüfus`, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">İl</span><span class="st">`</span>), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="st">  </span><span class="kw">scale_color_viridis_d</span>(<span class="dt">option =</span> <span class="st">&quot;A&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı düzenleyebiliriz.</p></li>
+<li><p>x ve y eksenlerine ait başlıkları düzeltebiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Nüfus`, y = Endeks, size = </span><span class="st">`</span>Nüfus`, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">İl</span><span class="st">`</span>), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">shape =</span> <span class="dv">21</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Nüfus&quot;,</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="st">       y = &quot;</span>İnsani Gelişme Endeksi<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="st">       title = &quot;</span>İl ve İlçelere Göre İnsani Gelişme Endeksi<span class="st">&quot;,</span></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="st">       caption = &quot;</span>Kaynak<span class="op">:</span><span class="st"> </span>İnsani Gelişme Vakfı, TÜİK<span class="st">&quot;)</span></a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="candlestick-mum" class="section level2">
+<h2><span class="header-section-number">2.5</span> Candlestick (Mum)</h2>
+<p><em>BIST’e ait açılış, en yüksek, en düşük, kapanış değerleri:</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">g1_<span class="dv">5</span> <span class="op">%&lt;&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Date =</span> <span class="kw">ymd</span>(Date))</a>
+<a class="sourceLine" id="cb13-3" title="3"></a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="co">#Veriler aşağıdaki gibi de alınabilir:</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="co">#tq_get(x = &quot;GARAN.IS&quot;, from = &quot;2020-05-04&quot;, to = &quot;2020-05-20&quot;)</span></a>
+<a class="sourceLine" id="cb13-6" title="6"></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb13-8" title="8"></a>
+<a class="sourceLine" id="cb13-9" title="9"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">5</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Close)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-10" title="10"><span class="st">  </span><span class="kw">geom_candlestick</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">open =</span> Open, <span class="dt">high =</span> High, <span class="dt">low =</span> Low, <span class="dt">close =</span> Close))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ul>
+<li>Düşüş ve yükseliş renklerini değiştirebiliriz.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">5</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Close)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="st">  </span><span class="kw">geom_candlestick</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">open =</span> Open, <span class="dt">high =</span> High, <span class="dt">low =</span> Low, <span class="dt">close =</span> Close),</a>
+<a class="sourceLine" id="cb14-3" title="3">                   <span class="dt">colour_up =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">fill_up =</span> <span class="st">&quot;darkgreen&quot;</span>,</a>
+<a class="sourceLine" id="cb14-4" title="4">                   <span class="dt">colour_down =</span> <span class="st">&quot;darkred&quot;</span>, <span class="dt">fill_down =</span> <span class="st">&quot;darkred&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<ul>
+<li><p>x ve y eksenlerine ait başlıkları kaldırabiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">5</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Close)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">geom_candlestick</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">open =</span> Open, <span class="dt">high =</span> High, <span class="dt">low =</span> Low, <span class="dt">close =</span> Close),</a>
+<a class="sourceLine" id="cb15-3" title="3">                   <span class="dt">colour_up =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">fill_up =</span> <span class="st">&quot;darkgreen&quot;</span>,</a>
+<a class="sourceLine" id="cb15-4" title="4">                   <span class="dt">colour_down =</span> <span class="st">&quot;darkred&quot;</span>, <span class="dt">fill_down =</span> <span class="st">&quot;darkred&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="st">  </span><span class="kw">theme_tq</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb15-7" title="7">       <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb15-8" title="8">       <span class="dt">title =</span> <span class="st">&quot;Garanti Bankası Açılış, En Yüksek, En Düşük, Kapanış Değerleri&quot;</span>,</a>
+<a class="sourceLine" id="cb15-9" title="9">       <span class="dt">subtitle =</span> <span class="st">&quot;04.05.2020-20.05.2020&quot;</span>,</a>
+<a class="sourceLine" id="cb15-10" title="10">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: Yahoo&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="density-yoğunluk" class="section level2">
+<h2><span class="header-section-number">2.6</span> Density (Yoğunluk)</h2>
+<p><em>İstanbul Anadolu Yakası 1+1 kiralık daire fiyatları:</em></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">6</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Fiyat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="st">  </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<ul>
+<li><p>Renklendirme yapabiliriz.</p></li>
+<li><p>y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">6</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Fiyat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<ul>
+<li><p>x eksenine ait başlığı kaldırabilir; y eksenine ait başlığı düzenleyebiliriz.</p></li>
+<li><p>Başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">6</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Fiyat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb18-6" title="6">       <span class="dt">y =</span> <span class="st">&quot;Yoğunluk&quot;</span>,</a>
+<a class="sourceLine" id="cb18-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;İstanbul Anadolu Yakası&#39;ndaki 1+1 Kiralık Daire Fiyatları&quot;</span>,</a>
+<a class="sourceLine" id="cb18-8" title="8">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: Sahibinden&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+<div id="histogram" class="section level2">
+<h2><span class="header-section-number">2.7</span> Histogram</h2>
+<p><em>Günlük BIST Endeksi toplam işlem hacmi:</em></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb19-2" title="2"></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">7</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb19-4" title="4"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">ToplamİşlemHacmi</span><span class="st">`</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<ul>
+<li><p>Aralık seçimini ayarlayabiliriz.</p></li>
+<li><p>x eksenine ait değerleri daha okunabilir bir formata getirebiliriz.</p></li>
+<li><p>Renklendirme yapabiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">7</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">ToplamİşlemHacmi</span><span class="st">`</span>), <span class="dt">binwidth =</span> <span class="dv">500000</span>, <span class="dt">fill =</span> <span class="st">&quot;dark red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">labels =</span> comma)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<ul>
+<li><p>x eksenine ait başlığı kaldırabilir, y eksenine ait başlığı düzeltebiliriz.</p></li>
+<li><p>Ortalama çizgisi (kesikli) ekleyebiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">7</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">ToplamİşlemHacmi</span><span class="st">`</span>), <span class="dt">binwidth =</span> <span class="dv">500000</span>, <span class="dt">fill =</span> <span class="st">&quot;dark red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(g1_<span class="dv">7</span><span class="op">$</span><span class="st">`</span><span class="dt">ToplamİşlemHacmi</span><span class="st">`</span>), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-4" title="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-5" title="5"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb21-7" title="7">       <span class="dt">y =</span> <span class="st">&quot;Sayma&quot;</span>,</a>
+<a class="sourceLine" id="cb21-8" title="8">       <span class="dt">title =</span> <span class="st">&quot;Günlük BIST Endeksi Toplam İşlem Hacmi&quot;</span>,</a>
+<a class="sourceLine" id="cb21-9" title="9">       <span class="dt">subtitle =</span> <span class="st">&quot;Son 10 yıla ait verilerdir&quot;</span>,</a>
+<a class="sourceLine" id="cb21-10" title="10">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TCMB&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<div id="line-çizgi" class="section level2">
+<h2><span class="header-section-number">2.8</span> Line (Çizgi)</h2>
+<p><em>Günlük Dolar ve Euro alış kuru:</em></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">g1_<span class="dv">8</span> <span class="op">%&lt;&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Tarih =</span> <span class="kw">as.Date</span>(Tarih))</a>
+<a class="sourceLine" id="cb22-3" title="3"></a>
+<a class="sourceLine" id="cb22-4" title="4"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb22-5" title="5"></a>
+<a class="sourceLine" id="cb22-6" title="6"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">8</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-7" title="7"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Tarih, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Alış</span><span class="st">`</span>, <span class="dt">group =</span> Kur))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<ul>
+<li><p>Renkleri değiştirebiliriz.</p></li>
+<li><p>Kur tiplerini ayırabiliriz.</p></li>
+<li><p>x eksenindeki tarihleri belli bir aralıkta gösterebiliriz.</p></li>
+<li><p>y eksenindeki değerleri belli bir limit ve aralıkta gösterebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">8</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span> Tarih, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Alış</span><span class="st">`</span>, <span class="dt">group =</span> Kur, <span class="dt">color =</span> Kur)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-3" title="3"><span class="st">  </span><span class="kw">scale_x_date</span>(<span class="dt">date_labels =</span> <span class="st">&quot;%Y&quot;</span>, <span class="dt">date_breaks =</span> <span class="st">&quot;year&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-4" title="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-5" title="5"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<ul>
+<li>Her bir çizginin sonunda hangi kura ait olduğunu belirtebiliriz.</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">8</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span> Tarih, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Alış</span><span class="st">`</span>, <span class="dt">group =</span> Kur, <span class="dt">color =</span> Kur)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-3" title="3"><span class="st">  </span><span class="kw">geom_dl</span>(<span class="kw">aes</span>(<span class="dt">label =</span> Kur), <span class="dt">method =</span> <span class="kw">list</span>(<span class="kw">dl.combine</span>(<span class="st">&quot;last.points&quot;</span>), <span class="dt">cex =</span> <span class="fl">0.8</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="st">  </span><span class="kw">scale_x_date</span>(<span class="dt">date_labels =</span> <span class="st">&quot;%Y&quot;</span>, <span class="dt">date_breaks =</span> <span class="st">&quot;year&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-5" title="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-6" title="6"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı kaldırabiliriz.</p></li>
+<li><p>x eksenine ait başlığı kaldırabilir; y eksenine ait başlığı düzeltebiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">8</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Tarih, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Alış</span><span class="st">`</span>, <span class="dt">group =</span> Kur, <span class="dt">color =</span> Kur)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="st">  </span><span class="kw">geom_dl</span>(<span class="kw">aes</span>(<span class="dt">label =</span> Kur), <span class="dt">method =</span> <span class="kw">list</span>(<span class="kw">dl.combine</span>(<span class="st">&quot;last.points&quot;</span>), <span class="dt">cex =</span> <span class="fl">0.7</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-5" title="5"><span class="st">  </span><span class="kw">scale_x_date</span>(<span class="dt">date_labels =</span> <span class="st">&quot;%Y&quot;</span>, <span class="dt">date_breaks =</span> <span class="st">&quot;year&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-6" title="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">8</span>,<span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-7" title="7"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>,<span class="st">&quot;red&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-8" title="8"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-9" title="9"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb25-10" title="10">       <span class="dt">y =</span> <span class="st">&quot;Alış&quot;</span>,</a>
+<a class="sourceLine" id="cb25-11" title="11">       <span class="dt">title =</span> <span class="st">&quot;Günlük Dolar ve Euro Alış Kuru&quot;</span>,</a>
+<a class="sourceLine" id="cb25-12" title="12">       <span class="dt">subtitle =</span> <span class="st">&quot;Son 10 yıla ait verilerdir&quot;</span>,</a>
+<a class="sourceLine" id="cb25-13" title="13">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TCMB&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
+<div id="multi-set-bar-çoklu-çubuk" class="section level2">
+<h2><span class="header-section-number">2.9</span> Multi-set Bar (Çoklu Çubuk)</h2>
+<p><em>Bölgeler düzeyinde tiyatro-sinema seyirci sayısı:</em></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb26-2" title="2"></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-4" title="4"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span>, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">Tip</span><span class="st">`</span>), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<ul>
+<li><p>x ekseninde yer alan bölge isimlerini küçültebiliriz.</p></li>
+<li><p>y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.</p></li>
+<li><p>Çubukları büyükten küçüğe doğru sıralayabiliriz.</p></li>
+<li><p>Çubukları renklendirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="op">-</span><span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span>), <span class="dt">y =</span> <span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span>, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">Tip</span><span class="st">`</span>), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-5" title="5"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı kaldırabiliriz.</p></li>
+<li><p>x ve y eksenlerine ait başlıkları kaldırabiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Bölge</span><span class="st">`</span>, <span class="op">-</span><span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span>), <span class="dt">y =</span> <span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span>, <span class="dt">fill =</span> <span class="st">`</span><span class="dt">Tip</span><span class="st">`</span>), <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-5" title="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb28-6" title="6">        <span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb28-7" title="7">        <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb28-8" title="8">        <span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</a>
+<a class="sourceLine" id="cb28-9" title="9">        <span class="dt">legend.title =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-10" title="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Bölgeler Düzeyinde Tiyatro ve Sinema Seyirci Sayısı&quot;</span>,</a>
+<a class="sourceLine" id="cb28-11" title="11">       <span class="dt">subtitle =</span> <span class="st">&quot;2018 yılına ait verilerdir&quot;</span>,</a>
+<a class="sourceLine" id="cb28-12" title="12">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TÜİK&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb28-13" title="13"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>,<span class="st">&quot;blue&quot;</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-27-1.png" width="960" /></p>
+</div>
+<div id="ohlc-açılış-yükseliş-düşüş-kapanış" class="section level2">
+<h2><span class="header-section-number">2.10</span> OHLC (Açılış-Yükseliş-Düşüş-Kapanış)</h2>
+<p><em>BIST’e ait açılış, en yüksek, en düşük, kapanış değerleri:</em></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">g1_<span class="dv">5</span> <span class="op">%&lt;&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Date =</span> <span class="kw">ymd</span>(Date))</a>
+<a class="sourceLine" id="cb29-3" title="3"></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="co">#Veriler aşağıdaki gibi de alınabilir:</span></a>
+<a class="sourceLine" id="cb29-5" title="5"><span class="co">#tq_get(x = &quot;GARAN.IS&quot;, from = &quot;2020-05-04&quot;, to = &quot;2020-05-20&quot;)</span></a>
+<a class="sourceLine" id="cb29-6" title="6"></a>
+<a class="sourceLine" id="cb29-7" title="7"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb29-8" title="8"></a>
+<a class="sourceLine" id="cb29-9" title="9"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">5</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Close)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-10" title="10"><span class="st">  </span><span class="kw">geom_barchart</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">open =</span> Open, <span class="dt">high =</span> High, <span class="dt">low =</span> Low, <span class="dt">close =</span> Close))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<ul>
+<li><p>Düşüş ve yükseliş renklerini değiştirebiliriz.</p></li>
+<li><p>Kalınlığını ayarlayabiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">5</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Close)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="st">  </span><span class="kw">geom_barchart</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">open =</span> Open, <span class="dt">high =</span> High, <span class="dt">low =</span> Low, <span class="dt">close =</span> Close),</a>
+<a class="sourceLine" id="cb30-3" title="3">                   <span class="dt">colour_up =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">colour_down =</span> <span class="st">&quot;darkred&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<ul>
+<li><p>x ve y eksenlerine ait başlıkları kaldırabiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">5</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Close)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="st">  </span><span class="kw">geom_barchart</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">open =</span> Open, <span class="dt">high =</span> High, <span class="dt">low =</span> Low, <span class="dt">close =</span> Close),</a>
+<a class="sourceLine" id="cb31-3" title="3">                   <span class="dt">colour_up =</span> <span class="st">&quot;darkgreen&quot;</span>, <span class="dt">colour_down =</span> <span class="st">&quot;darkred&quot;</span>, <span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-4" title="4"><span class="st">  </span><span class="kw">theme_tq</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-5" title="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb31-6" title="6">       <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb31-7" title="7">       <span class="dt">title =</span> <span class="st">&quot;Garanti Bankası Açılış, En Yüksek, En Düşük, Kapanış Değerleri&quot;</span>,</a>
+<a class="sourceLine" id="cb31-8" title="8">       <span class="dt">subtitle =</span> <span class="st">&quot;04.05.2020-20.05.2020&quot;</span>,</a>
+<a class="sourceLine" id="cb31-9" title="9">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: Yahoo&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+</div>
+<div id="population-pyramid-nüfus-piramidi" class="section level2">
+<h2><span class="header-section-number">2.11</span> Population Pyramid (Nüfus Piramidi)</h2>
+<p><em>Türkiye nüfus piramidi:</em></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb32-2" title="2"></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb32-4" title="4">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Yaş Grubu</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Sıralama</span><span class="st">`</span>), <span class="dt">fill =</span> Cinsiyet,</a>
+<a class="sourceLine" id="cb32-5" title="5">                     <span class="dt">y =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> Cinsiyet <span class="op">==</span><span class="st"> &quot;Erkek&quot;</span>, <span class="dt">yes =</span> <span class="op">-</span><span class="st">`</span><span class="dt">Nüfus`, no = </span><span class="st">`</span>Nüfus`))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb32-6" title="6"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-7" title="7"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<ul>
+<li><p>x eksenindeki değerleri kaldırabiliriz.</p></li>
+<li><p>Renkleri değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb33-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Yaş Grubu</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Sıralama</span><span class="st">`</span>), <span class="dt">fill =</span> Cinsiyet,</a>
+<a class="sourceLine" id="cb33-3" title="3">                     <span class="dt">y =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> Cinsiyet <span class="op">==</span><span class="st"> &quot;Erkek&quot;</span>, <span class="dt">yes =</span> <span class="op">-</span><span class="st">`</span><span class="dt">Nüfus`, no = </span><span class="st">`</span>Nüfus`))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb33-4" title="4"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-5" title="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> abs, <span class="dt">limits =</span> <span class="kw">max</span>(g1_<span class="dv">10</span><span class="op">$</span><span class="st">`</span><span class="dt">Nüfus`) * c(-1,1)) +</span></a>
+<a class="sourceLine" id="cb33-6" title="6"><span class="dt">  theme(axis.text.x = element_blank()) +</span></a>
+<a class="sourceLine" id="cb33-7" title="7"><span class="dt">  scale_fill_brewer(palette = &quot;Dark2&quot;) +</span></a>
+<a class="sourceLine" id="cb33-8" title="8"><span class="dt">  coord_flip()</span></a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı düzenleyebiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb34-2" title="2">       <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(<span class="st">`</span><span class="dt">Yaş Grubu</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Sıralama</span><span class="st">`</span>), <span class="dt">fill =</span> Cinsiyet,</a>
+<a class="sourceLine" id="cb34-3" title="3">                     <span class="dt">y =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> Cinsiyet <span class="op">==</span><span class="st"> &quot;Erkek&quot;</span>, <span class="dt">yes =</span> <span class="op">-</span><span class="st">`</span><span class="dt">Nüfus`, no = </span><span class="st">`</span>Nüfus`))) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb34-4" title="4"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-5" title="5"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-6" title="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> abs, <span class="dt">limits =</span> <span class="kw">max</span>(g1_<span class="dv">10</span><span class="op">$</span><span class="st">`</span><span class="dt">Nüfus`) * c(-1,1)) +</span></a>
+<a class="sourceLine" id="cb34-7" title="7"><span class="dt">  labs(x = NULL,</span></a>
+<a class="sourceLine" id="cb34-8" title="8"><span class="dt">       y = NULL,</span></a>
+<a class="sourceLine" id="cb34-9" title="9"><span class="dt">       title = &quot;Türkiye Nüfus Piramidi&quot;,</span></a>
+<a class="sourceLine" id="cb34-10" title="10"><span class="dt">       subtitle = &quot;2019 yılı nüfus verileri&quot;,</span></a>
+<a class="sourceLine" id="cb34-11" title="11"><span class="dt">       caption = &quot;Kaynak: TÜİK&quot;) +</span></a>
+<a class="sourceLine" id="cb34-12" title="12"><span class="dt">  theme(axis.text.x = element_blank(),</span></a>
+<a class="sourceLine" id="cb34-13" title="13"><span class="dt">        legend.title = element_blank()) +</span></a>
+<a class="sourceLine" id="cb34-14" title="14"><span class="dt">  scale_fill_brewer(palette = &quot;Dark2&quot;) +</span></a>
+<a class="sourceLine" id="cb34-15" title="15"><span class="dt">  coord_flip()</span></a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+</div>
+<div id="radar" class="section level2">
+<h2><span class="header-section-number">2.12</span> Radar</h2>
+<p><em>Dört büyüklerin aldığı kupa sayıları:</em></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">g1_<span class="dv">11</span> <span class="op">%&lt;&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="st">  </span><span class="kw">column_to_rownames</span>(<span class="dt">var =</span> <span class="st">&quot;Kupa&quot;</span>)</a>
+<a class="sourceLine" id="cb35-3" title="3"></a>
+<a class="sourceLine" id="cb35-4" title="4"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb35-5" title="5"></a>
+<a class="sourceLine" id="cb35-6" title="6"><span class="kw">radarchart</span>(g1_<span class="dv">11</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<ul>
+<li>İki tane satır eklememiz gerekiyor. Bu satırlar değişken sayısı kadar olacak ve her biri için minimum ve maksimum (kupa) sayıları belirtecek.</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">g1_<span class="dv">11</span> &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">rep</span>(<span class="dv">25</span>,<span class="dv">3</span>), <span class="kw">rep</span>(<span class="dv">0</span>,<span class="dv">3</span>), g1_<span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb36-2" title="2"></a>
+<a class="sourceLine" id="cb36-3" title="3"><span class="kw">radarchart</span>(g1_<span class="dv">11</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<ul>
+<li>Çizgi ve alanları renklendirebiliriz.</li>
+</ul>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">cizgi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">alpha</span>(<span class="st">&quot;blue&quot;</span>, <span class="dv">1</span>), <span class="kw">alpha</span>(<span class="st">&quot;black&quot;</span>, <span class="dv">1</span>), <span class="kw">alpha</span>(<span class="st">&quot;yellow&quot;</span>, <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb37-2" title="2">alan &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">alpha</span>(<span class="st">&quot;blue&quot;</span>, <span class="fl">0.5</span>), <span class="kw">alpha</span>(<span class="st">&quot;black&quot;</span>, <span class="fl">0.5</span>), <span class="kw">alpha</span>(<span class="st">&quot;yellow&quot;</span>, <span class="fl">0.5</span>))</a>
+<a class="sourceLine" id="cb37-3" title="3"></a>
+<a class="sourceLine" id="cb37-4" title="4"><span class="kw">radarchart</span>(g1_<span class="dv">11</span>,</a>
+<a class="sourceLine" id="cb37-5" title="5">           <span class="dt">pcol =</span> cizgi,</a>
+<a class="sourceLine" id="cb37-6" title="6">           <span class="dt">pfcol =</span> alan)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<ul>
+<li><p>Etiketleri düzeltebiliriz.</p></li>
+<li><p>Çizgileri düzeltebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">cizgi_kalinligi &lt;-<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb38-2" title="2">cizgi_tipi &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb38-3" title="3">cizgi_renk &lt;-<span class="st"> &quot;gray&quot;</span></a>
+<a class="sourceLine" id="cb38-4" title="4">etiket_buyuklugu &lt;-<span class="st"> </span><span class="fl">0.7</span></a>
+<a class="sourceLine" id="cb38-5" title="5"></a>
+<a class="sourceLine" id="cb38-6" title="6"><span class="kw">radarchart</span>(g1_<span class="dv">11</span>,</a>
+<a class="sourceLine" id="cb38-7" title="7">           <span class="dt">pcol =</span> cizgi,</a>
+<a class="sourceLine" id="cb38-8" title="8">           <span class="dt">pfcol =</span> alan,</a>
+<a class="sourceLine" id="cb38-9" title="9">           <span class="dt">plwd =</span> cizgi_kalinligi,</a>
+<a class="sourceLine" id="cb38-10" title="10">           <span class="dt">plty =</span> cizgi_tipi,</a>
+<a class="sourceLine" id="cb38-11" title="11">           <span class="dt">cglcol =</span> cizgi_renk,</a>
+<a class="sourceLine" id="cb38-12" title="12">           <span class="dt">vlcex =</span> etiket_buyuklugu)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<ul>
+<li><p>Lejant ekleyebiliriz.</p></li>
+<li><p>Başlık ekleyebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">radarchart</span>(g1_<span class="dv">11</span>,</a>
+<a class="sourceLine" id="cb39-2" title="2">           <span class="dt">pcol =</span> cizgi,</a>
+<a class="sourceLine" id="cb39-3" title="3">           <span class="dt">pfcol =</span> alan,</a>
+<a class="sourceLine" id="cb39-4" title="4">           <span class="dt">plwd =</span> cizgi_kalinligi,</a>
+<a class="sourceLine" id="cb39-5" title="5">           <span class="dt">plty =</span> cizgi_tipi,</a>
+<a class="sourceLine" id="cb39-6" title="6">           <span class="dt">cglcol =</span> cizgi_renk,</a>
+<a class="sourceLine" id="cb39-7" title="7">           <span class="dt">vlcex =</span> etiket_buyuklugu,</a>
+<a class="sourceLine" id="cb39-8" title="8">           <span class="dt">title =</span> <span class="st">&quot;Dört Büyüklerin Aldıkları Kupa Sayıları | TFF&quot;</span>)</a>
+<a class="sourceLine" id="cb39-9" title="9"></a>
+<a class="sourceLine" id="cb39-10" title="10"><span class="kw">legend</span>(<span class="dt">x =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb39-11" title="11">       <span class="dt">y =</span> <span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb39-12" title="12">       <span class="dt">legend =</span> <span class="kw">rownames</span>(g1_<span class="dv">11</span>[<span class="op">-</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),]),</a>
+<a class="sourceLine" id="cb39-13" title="13">       <span class="dt">pch =</span> <span class="dv">15</span>,</a>
+<a class="sourceLine" id="cb39-14" title="14">       <span class="dt">col =</span> alan,</a>
+<a class="sourceLine" id="cb39-15" title="15">       <span class="dt">cex =</span> <span class="fl">1.2</span>,</a>
+<a class="sourceLine" id="cb39-16" title="16">       <span class="dt">pt.cex =</span> <span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb39-17" title="17">       <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-38-1.png" width="960" /></p>
+</div>
+<div id="scatter-dağılım-nokta-saçılım" class="section level2">
+<h2><span class="header-section-number">2.13</span> Scatter (Dağılım, Nokta, Saçılım)</h2>
+<p><em>Cari dönem enflasyon beklentisi ile gerçekleşen enflasyon:</em></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb40-2" title="2"></a>
+<a class="sourceLine" id="cb40-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Beklenti, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Gerçek</span><span class="st">`</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<ul>
+<li>Mevsimlere göre renklendirebiliriz.</li>
+</ul>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Beklenti, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Gerçek</span><span class="st">`</span>, <span class="dt">color =</span> Mevsim)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-3" title="3"><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı kaldırabiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-2" title="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Beklenti, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Gerçek</span><span class="st">`</span>, <span class="dt">color =</span> Mevsim)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-3" title="3"><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-4" title="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-5" title="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Cari Dönem Enflasyon Beklentisi-Gerçekleşen&quot;</span>,</a>
+<a class="sourceLine" id="cb42-7" title="7">       <span class="dt">subtitle =</span> <span class="st">&quot;2013/Ocak-2020/Nisan verilerine aittir&quot;</span>,</a>
+<a class="sourceLine" id="cb42-8" title="8">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TCMB&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+</div>
+<div id="stacked-area-yığılı-alan" class="section level2">
+<h2><span class="header-section-number">2.14</span> Stacked Area (Yığılı Alan)</h2>
+<p><em>Covid-19 vaka, iyileşen ve ölüm sayıları:</em></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb43-2" title="2"></a>
+<a class="sourceLine" id="cb43-3" title="3">g1_<span class="dv">13</span><span class="op">$</span>Grup &lt;-<span class="st"> </span><span class="kw">factor</span>(g1_<span class="dv">13</span><span class="op">$</span>Grup, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Vaka&quot;</span>, <span class="st">&quot;İyileşen&quot;</span>, <span class="st">&quot;Ölüm&quot;)) #Yapılacak sıralama önemlidir.</span></a>
+<a class="sourceLine" id="cb43-4" title="4"></a>
+<a class="sourceLine" id="cb43-5" title="5"><span class="st">ggplot(data = g1_13) +</span></a>
+<a class="sourceLine" id="cb43-6" title="6"><span class="st">  geom_area(mapping = aes(x = `Gün`, y = `Sayı`, fill = Grup))</span></a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<ul>
+<li><p>y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.</p></li>
+<li><p>Renkleri değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">13</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Gün`, y = </span><span class="st">`</span>Sayı<span class="st">`</span><span class="dt">, fill = Grup)) +</span></a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="dt">  scale_y_continuous(labels = comma) +</span></a>
+<a class="sourceLine" id="cb44-4" title="4"><span class="dt">  scale_fill_viridis_d()</span></a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı düzenleyebiliriz.</p></li>
+<li><p>x ve y eksenlerine ait başlıkları kaldırabiliriz.</p></li>
+<li><p>Başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">13</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb45-2" title="2"><span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Gün`, y = </span><span class="st">`</span>Sayı<span class="st">`</span><span class="dt">, fill = Grup)) +</span></a>
+<a class="sourceLine" id="cb45-3" title="3"><span class="dt">  scale_y_continuous(labels = comma) +</span></a>
+<a class="sourceLine" id="cb45-4" title="4"><span class="dt">  scale_fill_viridis_d() +</span></a>
+<a class="sourceLine" id="cb45-5" title="5"><span class="dt">  theme_minimal() +</span></a>
+<a class="sourceLine" id="cb45-6" title="6"><span class="dt">  theme(legend.position = &quot;bottom&quot;,</span></a>
+<a class="sourceLine" id="cb45-7" title="7"><span class="dt">        legend.title = element_blank()) +</span></a>
+<a class="sourceLine" id="cb45-8" title="8"><span class="dt">  labs(x = NULL,</span></a>
+<a class="sourceLine" id="cb45-9" title="9"><span class="dt">       y = NULL,</span></a>
+<a class="sourceLine" id="cb45-10" title="10"><span class="dt">       title = &quot;Türkiye Covid-19 Vaka, İyileşen, Ölüm Sayıları&quot;,</span></a>
+<a class="sourceLine" id="cb45-11" title="11"><span class="dt">       caption = &quot;Kaynak: CSSEGISandData&quot;)</span></a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+</div>
+<div id="stacked-bar-yığılmış-çubuk" class="section level2">
+<h2><span class="header-section-number">2.15</span> Stacked Bar (Yığılmış Çubuk)</h2>
+<p><em>Partilerin cinsiyete göre milletvekili sayısı:</em></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb46-2" title="2"></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="kw">ggplot</span>(g1_<span class="dv">14</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb46-4" title="4"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Parti, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span>, <span class="dt">fill =</span> Cinsiyet), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="co">#Alternatif olarak yüzde ile gösterilebilir.</span></a>
+<a class="sourceLine" id="cb47-2" title="2"></a>
+<a class="sourceLine" id="cb47-3" title="3">g1_<span class="dv">14</span> <span class="op">%&lt;&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(Parti) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-5" title="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Oran =</span> <span class="kw">round</span>(<span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span> <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="st">`</span><span class="dt">Sayı</span><span class="st">`</span>) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dt">digits =</span> <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb47-6" title="6"></a>
+<a class="sourceLine" id="cb47-7" title="7"><span class="kw">ggplot</span>(g1_<span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb47-8" title="8"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Parti, <span class="dt">y =</span> Oran, <span class="dt">fill =</span> Cinsiyet), <span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>, <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-45-2.png" width="672" /></p>
+<ul>
+<li><p>Çubukların içine oranları yazabiliriz.</p></li>
+<li><p>Renkleri değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">ggplot</span>(g1_<span class="dv">14</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Parti, <span class="dt">y =</span> Oran, <span class="dt">fill =</span> Cinsiyet)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;%&quot;</span>,Oran)), <span class="dt">position =</span> <span class="kw">position_stack</span>(<span class="dt">vjust =</span> <span class="fl">0.5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>()</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<ul>
+<li><p>x ve y eksenlerine ait başlıkları kaldırabiliriz.</p></li>
+<li><p>y eksenindeki değerleri kaldırabiliriz.</p></li>
+<li><p>Lejantı düzenleyebiliriz.</p></li>
+<li><p>Başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">ggplot</span>(g1_<span class="dv">14</span>, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Parti, <span class="dt">y =</span> Oran, <span class="dt">fill =</span> Cinsiyet)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-3" title="3"><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">label =</span> <span class="kw">paste0</span>(<span class="st">&quot;%&quot;</span>,Oran)), <span class="dt">position =</span> <span class="kw">position_stack</span>(<span class="dt">vjust =</span> <span class="fl">0.5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-4" title="4"><span class="st">  </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-5" title="5"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-6" title="6"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb49-7" title="7">        <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-8" title="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb49-9" title="9">       <span class="dt">y =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb49-10" title="10">       <span class="dt">title =</span> <span class="st">&quot;TBMM Milletvekilleri Cinsiyete Göre Dağılım&quot;</span>,</a>
+<a class="sourceLine" id="cb49-11" title="11">       <span class="dt">subtitle =</span> <span class="st">&quot;5 parti dahil edilmiştir&quot;</span>,</a>
+<a class="sourceLine" id="cb49-12" title="12">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TBMM&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+</div>
+<div id="violin-viyolonsel" class="section level2">
+<h2><span class="header-section-number">2.16</span> Violin (Viyolonsel)</h2>
+<p><em>Günlük BIST Hizmet, Mali, Sınai, Teknoloji endeks kapanışları:</em></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="co">#En basit şekilde</span></a>
+<a class="sourceLine" id="cb50-2" title="2"></a>
+<a class="sourceLine" id="cb50-3" title="3"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-4" title="4"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Endeks, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Kapanış</span><span class="st">`</span>))</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<ul>
+<li><p>y eksenine ait değerleri daha okunabilir bir formata getirebiliriz.</p></li>
+<li><p>Kutuları renklendirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Endeks, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Kapanış</span><span class="st">`</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb51-3" title="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<ul>
+<li><p>Lejantı kaldırabiliriz.</p></li>
+<li><p>x eksenine ait başlığı kaldırabiliriz.</p></li>
+<li><p>Başlık, alt başlık ve kaynak ekleyebiliriz.</p></li>
+<li><p>Temayı değiştirebiliriz.</p></li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> g1_<span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-2" title="2"><span class="st">  </span><span class="kw">geom_violin</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> Endeks, <span class="dt">y =</span> <span class="st">`</span><span class="dt">Kapanış</span><span class="st">`</span>, <span class="dt">fill =</span> Endeks)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-3" title="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> comma) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-4" title="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-5" title="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb52-7" title="7">       <span class="dt">y =</span> <span class="st">&quot;Endeks Kapanışları&quot;</span>,</a>
+<a class="sourceLine" id="cb52-8" title="8">       <span class="dt">title =</span> <span class="st">&quot;Günlük BIST Hizmet, Mali, Sınai, Teknoloji Endeks Kapanışları&quot;</span>,</a>
+<a class="sourceLine" id="cb52-9" title="9">       <span class="dt">subtitle =</span> <span class="st">&quot;Son 1 yıla ait verilerdir&quot;</span>,</a>
+<a class="sourceLine" id="cb52-10" title="10">       <span class="dt">caption =</span> <span class="st">&quot;Kaynak: TCMB&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-11" title="11"><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</a></code></pre></div>
+<p><img src="rViz_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="veri-görselle-tirme-tür-ve-örnekleri.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["rViz.pdf", "rViz.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
